@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+   <meta charset=”UTF-8">
+   <title>PAGER LOADER</title>
+</head>
+<body>
+    <pre>click meeee</pre>
+    <svg id="clicky" width="469px" height="327px" viewBox="0 0 469 327" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+        <title>starting</title>
+        <desc>Created with Sketch.</desc>
+        <g id="starting" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <rect id="Rectangle" stroke="#333333" stroke-width="3" fill="#F4F4EF" x="45.5" y="46.5" width="376" height="233" rx="71"></rect>
+            <rect id="Rectangle" stroke="#333333" stroke-width="3" fill="#D8D8D8" x="65.5" y="112.5" width="337" height="68" rx="9"></rect>
+            <rect id="Rectangle-Copy" fill="#00A600" x="64" y="111" width="31" height="71" rx="9"></rect>
+            <rect id="Rectangle-Copy-2" stroke="#333333" stroke-width="3" x="65.5" y="112.5" width="337" height="68" rx="9"></rect>
+            <path d="M234,195 L234,236" id="Line" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="bevel"></path>
+        </g>
+    </svg>
+</body>
+<style>
+    body {
+        text-align:center;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="snap.svg.js"></script>
+<script>
+
+(function() {
+            
+            // the 5 polygons
+            var box = Snap('#Rectangle-Copy');
+
+            // click trigger
+            var icon = $('#clicky');
+
+            var morph01 = true; //ack
+            var morph02 = false; //res
+
+
+            icon.on('click', function() {
+                if (morph01) {
+                    //if acked, morph to resolve
+                    box.animate({fill:"#00A600", x:"64", y:"111", width:"31", height:"71", rx:"9"}, 1200, mina.easein);
+                   
+                    morph01 = false;
+                    morph02 = true;
+                } else if (morph02) {
+                    //if resolved, morph to ack
+                    box.animate({fill:"#00A600", x:"64", y:"111", width:"340", height:"71", rx:"9"}, 2000, mina.easein);
+                    
+                    morph01 = true;
+                    morph02 = false;
+                }
+            });
+        })()
+
+</script>
+</html>
